@@ -21,7 +21,7 @@ class LinkCategory(models.Model):
 
 
 TARGET_CHOICES = (
-    ('_none', _('Same window')),
+    ('_self', _('Same window')),
     ('_blank', _('New window')),
     ('_modal', _('Modal window')),
 )
@@ -31,7 +31,7 @@ class Link(models.Model, TranslatedObjectMixin):
     web_address = models.CharField(
         max_length=255, verbose_name=_("Link"))
     target = models.CharField(max_length=255, verbose_name=_(
-        "target"), choices=TARGET_CHOICES, default='_none')
+        "target"), choices=TARGET_CHOICES, default='_self')
     relationship = models.ForeignKey('self',
                                      blank=True, null=True, verbose_name=_("link relationship"))
     image = models.ForeignKey(
